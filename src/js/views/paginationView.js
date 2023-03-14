@@ -19,13 +19,19 @@ class PaginationView extends View {
     const numPages = Math.ceil(
       this._data.results.length / this._data.resultsPerPage
     );
+    const pageCount = `
+    <div class="pagination__pages--count"  >     
+      <span>${curPage} of ${numPages}</span> 
+    </div>`;
 
     // Page 1, and there are other pages
     if (curPage === 1 && numPages > 1) {
       return `
-        <button data-goto="${
-          curPage + 1
-        }" class="btn--inline pagination__btn--next">
+      <div class="pagination__left--padding"> </div>
+      ${pageCount}
+      <button data-goto="${
+        curPage + 1
+      }" class="btn--inline pagination__btn--next">
           <span>Page ${curPage + 1}</span>
           <svg class="search__icon">
             <use href="${icons}#icon-arrow-right"></use>
@@ -36,10 +42,11 @@ class PaginationView extends View {
 
     // Last page
     if (curPage === numPages && numPages > 1) {
-      return `
-        <button data-goto="${
-          curPage - 1
-        }" class="btn--inline pagination__btn--prev">
+      return `      
+      ${pageCount}
+      <button data-goto="${
+        curPage - 1
+      }" class="btn--inline pagination__btn--prev">
           <svg class="search__icon">
             <use href="${icons}#icon-arrow-left"></use>
           </svg>
@@ -59,9 +66,7 @@ class PaginationView extends View {
           </svg>
           <span>Page ${curPage - 1}</span>
         </button>
-     
-        <span  style="text-align:center">${curPage} of ${numPages}</span>
-        
+        ${pageCount}    
         <button data-goto="${
           curPage + 1
         }" class="btn--inline pagination__btn--next">
@@ -74,7 +79,7 @@ class PaginationView extends View {
     }
 
     // Page 1, and there are NO other pages
-    return '';
+    return ``;
   }
 }
 

@@ -11,7 +11,7 @@
 
 .pagination {
   margin-top: auto;
-  padding: 0 3.5rem;
+  padding: 0 0.5rem;
 
   &::after {
     content: '';
@@ -26,6 +26,20 @@
     &--next {
       float: right;
     }
+  }
+  &__left--padding {
+    width: 29.5%;
+    display: inline-block;
+    height: 1.5em;
+  }
+  &__pages--count {
+    text-align: center;
+    font-size: 10px;
+    position: sticky;
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 2.5%;
+    width: 39%;
   }
 }
 
