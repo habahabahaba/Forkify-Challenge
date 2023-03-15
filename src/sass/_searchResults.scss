@@ -1,7 +1,41 @@
 .search-results {
-  padding: 3rem 0;
+  padding: 1rem 0 3rem 0;
   display: flex;
   flex-direction: column;
+}
+.sort-panel {
+  display: grid;
+  gap: 1px;
+  grid-auto-flow: column;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  font-size: 13;
+  background-color: $color-grey-light-2;
+  border-radius: 5px;
+  margin: 0 3px 0 3px;
+}
+
+.sort-param {
+  // width: min-content;
+  width: max-content;
+  padding: 0 0 0 10px;
+  white-space: nowrap;
+}
+
+.sort-btn {
+  font-size: 8;
+  width: min-content;
+  border: none;
+  background: none;
+  padding: 0 7px 0 7px;
+}
+
+.sort-btn:hover {
+  background-color: $color-grad-1;
+  border-radius: 50%;
+}
+
+.sort-btn:active {
+  background-color: $color-grey-light-3;
 }
 
 .results {

@@ -1,5 +1,6 @@
 class SearchView {
   _parentEl = document.querySelector('.search');
+  _sortPanel = document.querySelector('.sort-panel');
 
   getQuery() {
     const query = this._parentEl.querySelector('.search__field').value;
@@ -14,6 +15,13 @@ class SearchView {
   addHandlerSearch(handler) {
     this._parentEl.addEventListener('submit', function (e) {
       e.preventDefault();
+      handler();
+    });
+  }
+
+  addHandlerSort(handler) {
+    this._sortPanel.addEventListener('click', function (e) {
+      // e.preventDefault();
       handler();
     });
   }

@@ -56,6 +56,10 @@ const controlSearchResults = async function () {
   }
 };
 
+const controlSortResults = function () {
+  console.log('sort panel');
+};
+
 const controlPagination = function (goToPage) {
   // 1) Render NEW results
   resultsView.render(model.getSearchResultsPage(goToPage));
@@ -125,6 +129,7 @@ const init = function () {
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
+  searchView.addHandlerSort(controlSortResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
 };
