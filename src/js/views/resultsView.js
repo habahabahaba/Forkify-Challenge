@@ -6,9 +6,19 @@ class ResultsView extends View {
   _parentElement = document.querySelector('.results');
   _errorMessage = 'No recipes found for your query! Please try again ;)';
   _message = '';
+  _sortPanel = document.querySelector('.sort-panel');
 
   _generateMarkup() {
     return this._data.map(result => previewView.render(result, false)).join('');
+  }
+
+  addHandlerSort(handler) {
+    this._sortPanel.addEventListener('click', function (e) {
+      // e.preventDefault();
+      const btn = e.target.closest('.sort-btn');
+      if (!btn) return;
+      handler();
+    });
   }
 }
 
