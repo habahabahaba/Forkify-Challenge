@@ -57,8 +57,16 @@ const controlSearchResults = async function () {
 };
 
 const controlSortResults = function () {
+  // resultsView.renderSpinner();
+
   console.log('sort button');
   model.sortSearchResults();
+
+  // // 3) Render results
+  // resultsView.render(model.getSearchResultsPage());
+
+  // // 4) Render initial pagination buttons
+  // paginationView.render(model.state.search);
 };
 
 const controlPagination = function (goToPage) {
