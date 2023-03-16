@@ -17,7 +17,10 @@ class ResultsView extends View {
       // e.preventDefault();
       const btn = e.target.closest('.sort-btn');
       if (!btn) return;
-      handler();
+
+      const property = btn.dataset.property;
+      const direction = btn.dataset.direction;
+      handler(property, direction);
     });
   }
 }

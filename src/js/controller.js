@@ -58,6 +58,7 @@ const controlSearchResults = async function () {
 
 const controlSortResults = function () {
   console.log('sort button');
+  model.sortSearchResults();
 };
 
 const controlPagination = function (goToPage) {

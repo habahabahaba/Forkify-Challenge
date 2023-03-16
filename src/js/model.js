@@ -69,6 +69,13 @@ export const loadSearchResults = async function (query) {
   }
 };
 
+export const sortSearchResults = function () {
+  const searchResults = state.search.results;
+  console.log(searchResults);
+  const fullResults = searchResults.forEach(el => loadRecipe(el.id));
+  console.log(fullResults);
+};
+
 export const getSearchResultsPage = function (page = state.search.page) {
   state.search.page = page;
 
