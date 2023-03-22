@@ -5,9 +5,11 @@ import { AJAX } from './helpers.js';
 
 export const state = {
   recipe: {},
+  // temp: {},
   search: {
     query: '',
     results: [],
+    fullResults: [],
     page: 1,
     resultsPerPage: RES_PER_PAGE,
   },
@@ -63,17 +65,46 @@ export const loadSearchResults = async function (query) {
       };
     });
     state.search.page = 1;
+
+    // Preloading full recipies (for sorting):
+    state.search.fullResults = await Promise.all(
+      state.search.results.map(async function (el) {
+        const data = await AJAX(`${API_URL}${el.id}?key=${KEY}`);
+        return data.data.recipe;
+      })
+    );
+
+    // Adding numberOfIngredients properties (for sorting):
+    state.search.fullResults.forEach(
+      el => (el.numberOfIngredients = el.ingredients.length)
+    );
+    // console.log(state.search.fullResults);
   } catch (err) {
     console.error(`${err} 💥💥💥💥`);
     throw err;
   }
 };
 
-export const sortSearchResults = function () {
-  const searchResults = state.search.results;
-  console.log(searchResults);
-  const fullResults = searchResults.forEach(el => loadRecipe(el.id));
-  console.log(fullResults);
+export const sortSearchResults = async function (property, direction) {
+  // console.log(state.search.results);
+
+  // Sorting full recipes:
+  state.search.fullResults.sort(function (a, b) {
+    if (+a[property] <= +b[property]) {
+      return -direction;
+    } else {
+      return +direction;
+    }
+  });
+  // console.log(state.search.fullResults);
+
+  // Extracting id's from full recipes:
+  const ids = state.search.fullResults.map(el => el.id);
+  // console.log(ids);
+
+  // Sorting results by id's:
+  state.search.results.sort((a, b) => +ids.indexOf(a.id) - +ids.indexOf(b.id));
+  // console.log(state.search.results);
 };
 
 export const getSearchResultsPage = function (page = state.search.page) {
