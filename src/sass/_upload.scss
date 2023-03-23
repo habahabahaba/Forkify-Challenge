@@ -7,7 +7,7 @@
   background-color: white;
   border-radius: 9px;
 
-  padding: 5rem 6rem;
+  padding: 5rem 3rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
   z-index: 1000;
   transition: all 0.5s;
@@ -44,8 +44,8 @@
 
 .upload {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem 6rem;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem 4rem;
 
   &__column {
     display: grid;
@@ -57,6 +57,14 @@
       font-size: 1.5rem;
       font-weight: 600;
       color: inherit;
+      width: max-content;
+    }
+
+    & div {
+      display: grid;
+      grid-template-columns: 15% 20% 62%;
+      grid-template-rows: min-content;
+      gap: 0px 5px;
     }
 
     & input {

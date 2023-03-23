@@ -1,6 +1,6 @@
-� Display number of pages between the pagination buttons;
+V Display number of pages between the pagination buttons;
 
-� Ability to sort search results by duration or number of ingredients;
+V Ability to sort search results by duration or number of ingredients;
 
 � Perform ingredient validation in view, before submitting the form;
 
