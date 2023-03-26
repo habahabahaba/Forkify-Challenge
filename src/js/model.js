@@ -78,7 +78,7 @@ export const loadSearchResults = async function (query) {
     state.search.fullResults.forEach(
       el => (el.numberOfIngredients = el.ingredients.length)
     );
-    // console.log(state.search.fullResults);
+    console.log(state.search.fullResults);
   } catch (err) {
     console.error(`${err} 💥💥💥💥`);
     throw err;
