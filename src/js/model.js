@@ -162,36 +162,68 @@ const clearBookmarks = function () {
 // clearBookmarks();
 
 export const uploadRecipe = async function (newRecipe) {
-  try {
-    const ingredients = Object.entries(newRecipe)
-      .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
-      .map(ing => {
-        const ingArr = ing[1].split(',').map(el => el.trim());
-        // const ingArr = ing[1].replaceAll(' ', '').split(',');
-        if (ingArr.length !== 3)
-          throw new Error(
-            'Wrong ingredient fromat! Please use the correct format :)'
-          );
+  // try {
+  let ingObj = {};
+  const ingEntries = Object.entries(newRecipe).filter(
+    entry => entry[0].startsWith('ingredient') && entry[1] !== ''
+  );
+  ingEntries.forEach(entry => {
+    const ingNum = +entry[0].split('-')[1] - 1;
+    const ingProp = entry[0].split('-')[2];
 
-        const [quantity, unit, description] = ingArr;
+    if (!ingObj[ingNum]) ingObj[ingNum] = {};
+    ingObj[ingNum][ingProp] = entry[1];
+  });
+  const ingredients = Object.values(ingObj);
 
-        return { quantity: quantity ? +quantity : null, unit, description };
-      });
+  // Setting quantities to numbers:
+  ingredients.forEach(obj => {
+    const quantNum = +obj.quantity;
+    obj.quantity = quantNum;
+  });
 
-    const recipe = {
-      title: newRecipe.title,
-      source_url: newRecipe.sourceUrl,
-      image_url: newRecipe.image,
-      publisher: newRecipe.publisher,
-      cooking_time: +newRecipe.cookingTime,
-      servings: +newRecipe.servings,
-      ingredients,
-    };
+  console.log(ingredients);
+  // };
+  // .map(ing => {
+  //   const ingArr = ing[1].split(',').map(el => el.trim());
+  //   // const ingArr = ing[1].replaceAll(' ', '').split(',');
+  //   if (ingArr.length !== 3)
 
-    const data = await AJAX(`${API_URL}?key=${KEY}`, recipe);
-    state.recipe = createRecipeObject(data);
-    addBookmark(state.recipe);
-  } catch (err) {
-    throw err;
-  }
+  // Checking for empty fields:
+  if (ingredients.some(obj => Object.keys(obj).length != 3))
+    throw new Error(
+      'Wrong ingredient fromat: some ingredient has at least one empty field!'
+    );
+
+  // // Checking quantities for positivity (depricated: is done in view):
+  // if (
+  //   ingredients.some(
+  //     obj => !(typeof obj.quantity === 'number' && obj.quantity > 0)
+  //   )
+  // )
+  //   throw new Error(
+  //     'Wrong ingredient fromat: quantity must be a positive number!'
+  //   );
+
+  //   const [quantity, unit, description] = ingArr;
+
+  //   return { quantity: quantity ? +quantity : null, unit, description };
+  // });
+
+  const recipe = {
+    title: newRecipe.title,
+    source_url: newRecipe.sourceUrl,
+    image_url: newRecipe.image,
+    publisher: newRecipe.publisher,
+    cooking_time: +newRecipe.cookingTime,
+    servings: +newRecipe.servings,
+    ingredients,
+  };
+  console.log(recipe);
+  //     const data = await AJAX(`${API_URL}?key=${KEY}`, recipe);
+  //     state.recipe = createRecipeObject(data);
+  //     addBookmark(state.recipe);
+  //   } catch (err) {
+  //     throw err;
+  //   }
 };
