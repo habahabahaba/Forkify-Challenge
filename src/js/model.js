@@ -162,68 +162,58 @@ const clearBookmarks = function () {
 // clearBookmarks();
 
 export const uploadRecipe = async function (newRecipe) {
-  // try {
-  let ingObj = {};
-  const ingEntries = Object.entries(newRecipe).filter(
-    entry => entry[0].startsWith('ingredient') && entry[1] !== ''
-  );
-  ingEntries.forEach(entry => {
-    const ingNum = +entry[0].split('-')[1] - 1;
-    const ingProp = entry[0].split('-')[2];
-
-    if (!ingObj[ingNum]) ingObj[ingNum] = {};
-    ingObj[ingNum][ingProp] = entry[1];
-  });
-  const ingredients = Object.values(ingObj);
-
-  // Setting quantities to numbers:
-  ingredients.forEach(obj => {
-    const quantNum = +obj.quantity;
-    obj.quantity = quantNum;
-  });
-
-  console.log(ingredients);
-  // };
-  // .map(ing => {
-  //   const ingArr = ing[1].split(',').map(el => el.trim());
-  //   // const ingArr = ing[1].replaceAll(' ', '').split(',');
-  //   if (ingArr.length !== 3)
-
-  // Checking for empty fields:
-  if (ingredients.some(obj => Object.keys(obj).length != 3))
-    throw new Error(
-      'Wrong ingredient fromat: some ingredient has at least one empty field!'
+  try {
+    let ingObj = {};
+    const ingEntries = Object.entries(newRecipe).filter(
+      entry => entry[0].startsWith('ingredient') && entry[1] !== ''
     );
+    ingEntries.forEach(entry => {
+      const ingNum = +entry[0].split('-')[1] - 1;
+      const ingProp = entry[0].split('-')[2];
 
-  // // Checking quantities for positivity (depricated: is done in view):
-  // if (
-  //   ingredients.some(
-  //     obj => !(typeof obj.quantity === 'number' && obj.quantity > 0)
-  //   )
-  // )
-  //   throw new Error(
-  //     'Wrong ingredient fromat: quantity must be a positive number!'
-  //   );
+      if (!ingObj[ingNum]) ingObj[ingNum] = {};
+      ingObj[ingNum][ingProp] = entry[1];
+    });
+    const ingredients = Object.values(ingObj);
 
-  //   const [quantity, unit, description] = ingArr;
+    // Setting quantities to numbers:
+    ingredients.forEach(obj => {
+      const quantNum = +obj.quantity;
+      obj.quantity = quantNum;
+    });
 
-  //   return { quantity: quantity ? +quantity : null, unit, description };
-  // });
+    // console.log(ingredients);
 
-  const recipe = {
-    title: newRecipe.title,
-    source_url: newRecipe.sourceUrl,
-    image_url: newRecipe.image,
-    publisher: newRecipe.publisher,
-    cooking_time: +newRecipe.cookingTime,
-    servings: +newRecipe.servings,
-    ingredients,
-  };
-  console.log(recipe);
-  //     const data = await AJAX(`${API_URL}?key=${KEY}`, recipe);
-  //     state.recipe = createRecipeObject(data);
-  //     addBookmark(state.recipe);
-  //   } catch (err) {
-  //     throw err;
-  //   }
+    // Checking for empty fields:
+    if (ingredients.some(obj => Object.keys(obj).length != 3))
+      throw new Error(
+        'Wrong ingredient fromat: some ingredient has at least one  field left empty!'
+      );
+
+    // // Checking quantities for positivity (depricated: done in view):
+    // if (
+    //   ingredients.some(
+    //     obj => !(typeof obj.quantity === 'number' && obj.quantity > 0)
+    //   )
+    // )
+    //   throw new Error(
+    //     'Wrong ingredient fromat: quantity must be a positive number!'
+    //   );
+
+    const recipe = {
+      title: newRecipe.title,
+      source_url: newRecipe.sourceUrl,
+      image_url: newRecipe.image,
+      publisher: newRecipe.publisher,
+      cooking_time: +newRecipe.cookingTime,
+      servings: +newRecipe.servings,
+      ingredients,
+    };
+    console.log(recipe);
+    const data = await AJAX(`${API_URL}?key=${KEY}`, recipe);
+    state.recipe = createRecipeObject(data);
+    addBookmark(state.recipe);
+  } catch (err) {
+    throw err;
+  }
 };
