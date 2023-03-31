@@ -48,6 +48,9 @@
   gap: 2rem 4rem;
 
   &__column {
+    height: 300px;
+    padding-top: 1.4rem;
+
     display: grid;
     grid-template-columns: 1fr 2.8fr;
     align-items: center;
@@ -89,6 +92,25 @@
       grid-column: 1 / span 2;
       justify-self: center;
       margin-top: 1rem;
+    }
+
+    &.ingredients {
+      display: block;
+      // padding-top: 4px;
+
+      // overflow-x: hidden;
+      overflow-y: scroll;
+      display: grid;
+      grid-template-columns: 1fr 2.8fr;
+      align-items: center;
+      // gap: 1rem;
+      // row-gap: 0.8rem;
+      padding-top: 1.4rem;
+      // padding: 0 0 0 0;
+
+      & label {
+        width: 10rem;
+      }
     }
   }
 

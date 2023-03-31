@@ -292,162 +292,166 @@
     <div class="add-recipe-window hidden">
       <button class="btn--close-modal">&times;</button>
       <form class="upload">
-        <div class="upload__column">
+        <div style="display: block">
           <h3 class="upload__heading">Recipe data</h3>
-          <label>Title</label>
-          <input value="TEST23" required name="title" type="text" />
-          <label>URL</label>
-          <input value="TEST23" required name="sourceUrl" type="text" />
-          <label>Image URL</label>
-          <input value="TEST23" required name="image" type="text" />
-          <label>Publisher</label>
-          <input value="TEST23" required name="publisher" type="text" />
-          <label>Prep time</label>
-          <input value="23" required name="cookingTime" type="number" />
-          <label>Servings</label>
-          <input value="23" required name="servings" type="number" />
+          <div class="upload__column data">
+            <label>Title</label>
+            <input value="TEST23" required name="title" type="text" />
+            <label>URL</label>
+            <input value="TEST23" required name="sourceUrl" type="text" />
+            <label>Image URL</label>
+            <input value="TEST23" required name="image" type="text" />
+            <label>Publisher</label>
+            <input value="TEST23" required name="publisher" type="text" />
+            <label>Prep time</label>
+            <input value="23" required name="cookingTime" type="number" />
+            <label>Servings</label>
+            <input value="23" required name="servings" type="number" />
+          </div>
         </div>
 
-        <div class="upload__column">
+        <div style="display: block">
           <h3 class="upload__heading">Ingredients</h3>
-          <label>Ingredient 1</label>
-          <div class="ingredient-row">
-            <input
-              type="number"
-              step="0.1"
-              min="0.1"
-              required
-              name="ingredient-1-quantity"
-              placeholder="Quantity"
-              value="1"
-            />
-            <input
-              type="text"
-              name="ingredient-1-unit"
-              placeholder="Unit"
-              value="a"
-            />
-            <input
-              type="text"
-              name="ingredient-1-description"
-              placeholder="Description"
-              value="aaa"
-            />
-          </div>
-          <label>Ingredient 2</label>
-          <div class="ingredient-row">
-            <input
-              type="number"
-              step="0.1"
-              min="0.1"
-              name="ingredient-2-quantity"
-              placeholder="Quantity"
-              value="2"
-            />
-            <input
-              type="text"
-              name="ingredient-2-unit"
-              placeholder="Unit"
-              value="b"
-            />
-            <input
-              type="text"
-              name="ingredient-2-description"
-              placeholder="Description"
-              value="bbb"
-            />
-          </div>
-          <label>Ingredient 3</label>
-          <div class="ingredient-row">
-            <input
-              type="number"
-              step="0.1"
-              min="0.1"
-              name="ingredient-3-quantity"
-              placeholder="Quantity"
-              value="3"
-            />
-            <input
-              type="text"
-              name="ingredient-3-unit"
-              placeholder="Unit"
-              value="c"
-            />
-            <input
-              type="text"
-              name="ingredient-3-description"
-              placeholder="Description"
-              value="ccc"
-            />
-          </div>
-          <label>Ingredient 4</label>
-          <div class="ingredient-row">
-            <input
-              type="number"
-              step="0.1"
-              min="0.1"
-              name="ingredient-4-quantity"
-              placeholder="Quantity"
-              value="4"
-            />
-            <input
-              type="text"
-              name="ingredient-4-unit"
-              placeholder="Unit"
-              value="d"
-            />
-            <input
-              type="text"
-              name="ingredient-4-description"
-              placeholder="Description"
-              value="ddd"
-            />
-          </div>
-          <label>Ingredient 5</label>
-          <div class="ingredient-row">
-            <input
-              type="number"
-              step="0.1"
-              min="0.1"
-              name="ingredient-5-quantity"
-              placeholder="Quantity"
-              value="5"
-            />
-            <input
-              type="text"
-              name="ingredient-5-unit"
-              placeholder="Unit"
-              value="e"
-            />
-            <input
-              type="text"
-              name="ingredient-5-description"
-              placeholder="Description"
-              value="eee"
-            />
-          </div>
-          <label>Ingredient 6</label>
-          <div class="ingredient-row">
-            <input
-              type="number"
-              step="0.1"
-              min="0.1"
-              name="ingredient-6-quantity"
-              placeholder="Quantity"
-              value="6"
-            />
-            <input
-              type="text"
-              name="ingredient-6-unit"
-              placeholder="Unit"
-              value="f"
-            />
-            <input
-              type="text"
-              name="ingredient-6-description"
-              placeholder="Description"
-              value="fff"
-            />
+          <div class="upload__column ingredients scrollbox">
+            <label>Ingredient 1</label>
+            <div class="ingredient-row">
+              <input
+                type="number"
+                step="0.1"
+                min="0.1"
+                required
+                name="ingredient-1-quantity"
+                placeholder="Quantity"
+                value="1"
+              />
+              <input
+                type="text"
+                name="ingredient-1-unit"
+                placeholder="Unit"
+                value="a"
+              />
+              <input
+                type="text"
+                name="ingredient-1-description"
+                placeholder="Description"
+                value="aaa"
+              />
+            </div>
+            <label>Ingredient 2</label>
+            <div class="ingredient-row">
+              <input
+                type="number"
+                step="0.1"
+                min="0.1"
+                name="ingredient-2-quantity"
+                placeholder="Quantity"
+                value="2"
+              />
+              <input
+                type="text"
+                name="ingredient-2-unit"
+                placeholder="Unit"
+                value="b"
+              />
+              <input
+                type="text"
+                name="ingredient-2-description"
+                placeholder="Description"
+                value="bbb"
+              />
+            </div>
+            <label>Ingredient 3</label>
+            <div class="ingredient-row">
+              <input
+                type="number"
+                step="0.1"
+                min="0.1"
+                name="ingredient-3-quantity"
+                placeholder="Quantity"
+                value="3"
+              />
+              <input
+                type="text"
+                name="ingredient-3-unit"
+                placeholder="Unit"
+                value="c"
+              />
+              <input
+                type="text"
+                name="ingredient-3-description"
+                placeholder="Description"
+                value="ccc"
+              />
+            </div>
+            <label>Ingredient 4</label>
+            <div class="ingredient-row">
+              <input
+                type="number"
+                step="0.1"
+                min="0.1"
+                name="ingredient-4-quantity"
+                placeholder="Quantity"
+                value="4"
+              />
+              <input
+                type="text"
+                name="ingredient-4-unit"
+                placeholder="Unit"
+                value="d"
+              />
+              <input
+                type="text"
+                name="ingredient-4-description"
+                placeholder="Description"
+                value="ddd"
+              />
+            </div>
+            <label>Ingredient 5</label>
+            <div class="ingredient-row">
+              <input
+                type="number"
+                step="0.1"
+                min="0.1"
+                name="ingredient-5-quantity"
+                placeholder="Quantity"
+                value="5"
+              />
+              <input
+                type="text"
+                name="ingredient-5-unit"
+                placeholder="Unit"
+                value="e"
+              />
+              <input
+                type="text"
+                name="ingredient-5-description"
+                placeholder="Description"
+                value="eee"
+              />
+            </div>
+            <label>Ingredient 6</label>
+            <div class="ingredient-row">
+              <input
+                type="number"
+                step="0.1"
+                min="0.1"
+                name="ingredient-6-quantity"
+                placeholder="Quantity"
+                value="6"
+              />
+              <input
+                type="text"
+                name="ingredient-6-unit"
+                placeholder="Unit"
+                value="f"
+              />
+              <input
+                type="text"
+                name="ingredient-6-description"
+                placeholder="Description"
+                value=""
+              />
+            </div>
           </div>
         </div>
         <button class="btn upload__btn">

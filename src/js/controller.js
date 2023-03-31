@@ -142,6 +142,15 @@ const init = function () {
   resultsView.addHandlerSort(controlSortResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  addRecipeView._addHandlerAddRow();
+  addRecipeView._addHandlerCheckAllInputs();
 };
 init();
-console.log(addRecipeView._ingredients);
+console.log(
+  `All the input fields for adding ingredients are:${addRecipeView._ingredientInputs}.`
+);
+// console.log(addRecipeView._btnAddRow);
+console.log(`Last row number is ${addRecipeView._lastRowNumber}.`);
+console.log(
+  `Ingredients column element is ${addRecipeView._ingredientColumn}.`
+);
