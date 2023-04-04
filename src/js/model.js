@@ -190,6 +190,21 @@ export const uploadRecipe = async function (newRecipe) {
         'Wrong ingredient fromat: some ingredient has at least one  field left empty!'
       );
 
+    // Checking for quantity numbers:
+    if (
+      ingredients.some(
+        obj =>
+          obj.quantity === '' ||
+          obj.quantity === null ||
+          obj.quantity === undefined ||
+          obj.quantity === NaN ||
+          !obj.quantity
+      )
+    )
+      throw new Error(
+        'Wrong ingredient fromat: please enter quantity for all ingredients.'
+      );
+
     // // Checking quantities for positivity (depricated: done in view):
     // if (
     //   ingredients.some(

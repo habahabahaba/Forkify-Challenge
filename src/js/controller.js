@@ -6,6 +6,7 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
+import messagesView from './views/messagesView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -105,7 +106,9 @@ const controlBookmarks = function () {
 const controlAddRecipe = async function (newRecipe) {
   try {
     // Show loading spinner
-    addRecipeView.renderSpinner();
+    // addRecipeView.renderSpinner();
+    messagesView.showWindow();
+    messagesView.renderSpinner();
 
     // Upload the new recipe data
     await model.uploadRecipe(newRecipe);
@@ -115,7 +118,7 @@ const controlAddRecipe = async function (newRecipe) {
     recipeView.render(model.state.recipe);
 
     // Success message
-    addRecipeView.renderMessage();
+    messagesView.renderMessageProper(addRecipeView._message);
 
     // Render bookmark view
     bookmarksView.render(model.state.bookmarks);
@@ -123,16 +126,89 @@ const controlAddRecipe = async function (newRecipe) {
     // Change ID in URL
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
 
-    // Close form window
+    // Close message window
     setTimeout(function () {
-      addRecipeView.toggleWindow();
+      messagesView.hideWindow();
     }, MODAL_CLOSE_SEC * 1000);
+
+    // Reset upload form
+    addRecipeView._reset();
+    addRecipeView._addHandlerAddRow(controlAddRow);
+    addRecipeView._addHandlerCheckIngredientInputs(
+      controlCheckIngredientInputs
+    );
+
+    //Hide Upload window
+    addRecipeView.toggleWindow();
   } catch (err) {
     console.error('💥', err);
-    addRecipeView.renderError(err.message);
+    // messagesView.renderErrorProper(err.message);
+    messagesView.showWindow();
+    messagesView.renderError(err.message);
   }
 };
 
+const controlAddRow = function () {
+  try {
+    if (addRecipeView._btnAddRow.classList != 'upload__add-row awake') {
+      throw new Error('Please fill all fields before adding a new ingredient.');
+    }
+
+    // console.log('add-row button WAS CLICKED!');
+    // console.log(ingredientScrollBox);
+    // console.log(lastRowNumber);
+
+    const ingredientScrollBox = document.querySelector(
+      'div.upload__column.ingredients.scrollbox'
+    );
+
+    addRecipeView._renderIngredientRow(ingredientScrollBox);
+    addRecipeView._addHandlerCheckIngredientInputs(
+      controlCheckIngredientInputs
+    );
+    const btnAddRow = document.querySelector('button[class*=add-row]');
+
+    btnAddRow.classList = 'upload__add-row';
+  } catch (err) {
+    console.error('💥', err);
+    messagesView.renderErrorProper(err.message);
+  }
+};
+
+const controlCheckIngredientInputs = function () {
+  const inputs = document.querySelectorAll('input[name*=ingredient]');
+
+  let allFilled = true;
+
+  inputs.forEach(input => {
+    if (input.type === 'text' && input.value.trim() === '') {
+      allFilled = false;
+    } else if (
+      input.type == 'number' &&
+      (input.value === '' ||
+        input.value === null ||
+        input.value === undefined ||
+        input.value === NaN ||
+        !input.value)
+    ) {
+      allFilled = false;
+    }
+  });
+
+  addRecipeView._btnAddRowAwake(allFilled);
+
+  // if (allFilled) {
+  //   console.log('All inputs are filled!');
+  //   // Do something when all inputs are filled
+  //   addRecipeView._btnAddRowAwake(true);
+  // }
+
+  // if (!allFilled) {
+  //   console.log('Some inputs are not filled.');
+  //   // Do something when some inputs are no longer filled
+  //   addRecipeView._btnAddRowAwake(false);
+  // }
+};
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -142,15 +218,9 @@ const init = function () {
   resultsView.addHandlerSort(controlSortResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  addRecipeView._addHandlerAddRow();
-  addRecipeView._addHandlerCheckAllInputs();
+  addRecipeView._addHandlerAddRow(controlAddRow);
+  addRecipeView._addHandlerCheckIngredientInputs(controlCheckIngredientInputs);
 };
 init();
-console.log(
-  `All the input fields for adding ingredients are:${addRecipeView._ingredientInputs}.`
-);
+
 // console.log(addRecipeView._btnAddRow);
-console.log(`Last row number is ${addRecipeView._lastRowNumber}.`);
-console.log(
-  `Ingredients column element is ${addRecipeView._ingredientColumn}.`
-);

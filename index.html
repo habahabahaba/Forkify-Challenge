@@ -296,17 +296,53 @@
           <h3 class="upload__heading">Recipe data</h3>
           <div class="upload__column data">
             <label>Title</label>
-            <input value="TEST23" required name="title" type="text" />
+            <input
+              value="TEST23"
+              required
+              name="title"
+              type="text"
+              placeholder="Recipe title"
+            />
             <label>URL</label>
-            <input value="TEST23" required name="sourceUrl" type="text" />
+            <input
+              value="TEST23"
+              required
+              name="sourceUrl"
+              type="text"
+              placeholder="Recipe URL"
+            />
             <label>Image URL</label>
-            <input value="TEST23" required name="image" type="text" />
+            <input
+              value="TEST23"
+              required
+              name="image"
+              type="text"
+              placeholder="Image URL"
+            />
             <label>Publisher</label>
-            <input value="TEST23" required name="publisher" type="text" />
+            <input
+              value="TEST23"
+              required
+              name="publisher"
+              type="text"
+              placeholder="Publisher"
+            />
             <label>Prep time</label>
-            <input value="23" required name="cookingTime" type="number" />
+            <input
+              value="23"
+              required
+              name="cookingTime"
+              type="number"
+              placeholder="Time in minutes"
+            />
             <label>Servings</label>
-            <input value="23" required name="servings" type="number" />
+            <input
+              value="23"
+              required
+              name="servings"
+              type="number"
+              placeholder="Number of servings"
+            />
           </div>
         </div>
 
@@ -460,8 +496,13 @@
           </svg>
           <span>Upload</span>
         </button>
-        <button class="upload__add-row awake">+</button>
+        <button class="upload__add-row">+</button>
       </form>
+    </div>
+    <div class="overlay-message hidden"></div>
+    <div class="message-window hidden">
+      <button class="btn--close-message">&times;</button>
+      <div class="messages"></div>
     </div>
   </body>
 </html>
