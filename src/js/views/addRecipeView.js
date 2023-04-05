@@ -30,8 +30,8 @@ class AddRecipeView extends View {
       <div class="ingredient-row">
         <input
           type="number"
-          step="0.1"
-          min="0.1"
+          step="0.01"
+          min="0.01"
           required
           name="ingredient-1-quantity"
           placeholder="Quantity"
@@ -51,8 +51,8 @@ class AddRecipeView extends View {
       <div class="ingredient-row">
         <input
           type="number"
-          step="0.1"
-          min="0.1"
+          step="0.01"
+          min="0.01"
           name="ingredient-2-quantity"
           placeholder="Quantity"
         />
@@ -71,8 +71,8 @@ class AddRecipeView extends View {
       <div class="ingredient-row">
         <input
           type="number"
-          step="0.1"
-          min="0.1"
+          step="0.01"
+          min="0.01"
           name="ingredient-3-quantity"
           placeholder="Quantity"
         />
@@ -91,8 +91,8 @@ class AddRecipeView extends View {
       <div class="ingredient-row">
         <input
           type="number"
-          step="0.1"
-          min="0.1"
+          step="0.01"
+          min="0.01"
           name="ingredient-4-quantity"
           placeholder="Quantity"
         />
@@ -111,8 +111,8 @@ class AddRecipeView extends View {
       <div class="ingredient-row">
         <input
           type="number"
-          step="0.1"
-          min="0.1"
+          step="0.01"
+          min="0.01"
           name="ingredient-5-quantity"
           placeholder="Quantity"
         />
@@ -131,8 +131,8 @@ class AddRecipeView extends View {
       <div class="ingredient-row">
         <input
           type="number"
-          step="0.1"
-          min="0.1"
+          step="0.01"
+          min="0.01"
           name="ingredient-6-quantity"
           placeholder="Quantity"
         />
@@ -232,8 +232,8 @@ class AddRecipeView extends View {
       <div class="ingredient-row">
         <input
           type="number"
-          step="0.1"
-          min="0.1"
+          step="0.01"
+          min="0.01"
           name="ingredient-${lastRowNumber + 1}-quantity"
           placeholder="Quantity"
         />
