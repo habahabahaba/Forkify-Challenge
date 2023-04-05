@@ -171,7 +171,7 @@ const controlAddRow = function () {
     btnAddRow.classList = 'upload__add-row';
   } catch (err) {
     console.error('💥', err);
-    messagesView.renderErrorProper(err.message);
+    messagesView.renderMessageProper(err.message);
   }
 };
 
