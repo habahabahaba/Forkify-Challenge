@@ -75,7 +75,7 @@
 
     & div {
       display: grid;
-      grid-template-columns: 18% 20% 57%;
+      grid-template-columns: 15% 15% 15% 50%;
       grid-template-rows: min-content;
       gap: 0px 5px;
     }
@@ -105,21 +105,25 @@
     }
 
     &.ingredients {
-      display: block;
-      // padding-top: 4px;
-
-      // overflow-x: hidden;
+      // display: block;
+      // display: grid;
+      grid-template-columns: 1fr;
+      // align-items: center;
+      // align-items: baseline;
+      // align-items: space-between;
       overflow-y: scroll;
-      display: grid;
-      grid-template-columns: 1fr 2.8fr;
-      align-items: center;
-      // gap: 1rem;
+      // overflow-x: hidden;
+      // gap: 1.5rem;
+      // padding-top: 1.4rem;
+
+      // vertical-align: baseline;
+
       // row-gap: 0.8rem;
-      padding-top: 1.4rem;
-      // padding: 0 0 0 0;
 
       & label {
         width: 10rem;
+        line-height: 240%;
+        height: 24;
       }
     }
   }
@@ -156,4 +160,9 @@
       }
     }
   }
+  // .ingredient-row {
+  //   // margin: 200;
+  //   // color: #f48982;
+  //   align-content: baseline;
+  // }
 }

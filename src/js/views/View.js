@@ -57,21 +57,21 @@ export default class View {
     this._parentElement.innerHTML = '';
   }
 
-  _reset() {
-    this._parentElement.innerHTML = this._parentInit;
-    // this._parentElement.href = this._parentElement.href;
+  // _reset() {
+  //   this._parentElement.innerHTML = this._parentInit;
+  //   // this._parentElement.href = this._parentElement.href;
 
-    // // Reload icons
-    // const svgs = this._parentElement.querySelectorAll('svg');
+  //   // // Reload icons
+  //   // const svgs = this._parentElement.querySelectorAll('svg');
 
-    // svgs.forEach(svg => {
-    //   const use = svg.querySelector('use');
-    //   const href = use.getAttribute('href');
-    //   const newHref = `${href}?${new Date().getTime()}`;
+  //   // svgs.forEach(svg => {
+  //   //   const use = svg.querySelector('use');
+  //   //   const href = use.getAttribute('href');
+  //   //   const newHref = `${href}?${new Date().getTime()}`;
 
-    //   use.setAttribute('href', newHref);
-    // });
-  }
+  //   //   use.setAttribute('href', newHref);
+  //   // });
+  // }
 
   renderSpinner() {
     const markup = `

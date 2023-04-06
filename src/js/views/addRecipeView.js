@@ -26,8 +26,8 @@ class AddRecipeView extends View {
   <div style="display: block">
     <h3 class="upload__heading">Ingredients</h3>
     <div class="upload__column ingredients scrollbox">
+    <div class="ingredient-row 1">
       <label>Ingredient 1</label>
-      <div class="ingredient-row">
         <input
           type="number"
           step="0.01"
@@ -47,8 +47,8 @@ class AddRecipeView extends View {
           placeholder="Description"
         />
       </div>
-      <label>Ingredient 2</label>
-      <div class="ingredient-row">
+      <div class="ingredient-row 2">
+        <label>Ingredient 2</label>
         <input
           type="number"
           step="0.01"
@@ -67,8 +67,8 @@ class AddRecipeView extends View {
           placeholder="Description"
         />
       </div>
-      <label>Ingredient 3</label>
-      <div class="ingredient-row">
+      <div class="ingredient-row 3">
+        <label>Ingredient 3</label>
         <input
           type="number"
           step="0.01"
@@ -87,8 +87,8 @@ class AddRecipeView extends View {
           placeholder="Description"
         />
       </div>
-      <label>Ingredient 4</label>
-      <div class="ingredient-row">
+      <div class="ingredient-row 4">
+        <label>Ingredient 4</label>
         <input
           type="number"
           step="0.01"
@@ -107,8 +107,8 @@ class AddRecipeView extends View {
           placeholder="Description"
         />
       </div>
-      <label>Ingredient 5</label>
-      <div class="ingredient-row">
+      <div class="ingredient-row 5">
+        <label>Ingredient 5</label>
         <input
           type="number"
           step="0.01"
@@ -127,8 +127,8 @@ class AddRecipeView extends View {
           placeholder="Description"
         />
       </div>
-      <label>Ingredient 6</label>
-      <div class="ingredient-row">
+      <div class="ingredient-row 6">
+        <label>Ingredient 6</label>
         <input
           type="number"
           step="0.01"
@@ -163,9 +163,6 @@ class AddRecipeView extends View {
   _btnOpen = document.querySelector('.nav__btn--add-recipe');
   _btnClose = document.querySelector('.btn--close-modal');
   _btnAddRow = document.querySelector('button[class*=add-row]');
-  // _ingredientScrollBox = document.querySelector(
-  //   'div.upload__column.ingredients.scrollbox'
-  // );
 
   constructor() {
     super();
@@ -176,6 +173,25 @@ class AddRecipeView extends View {
   toggleWindow() {
     this._overlay.classList.toggle('hidden');
     this._window.classList.toggle('hidden');
+  }
+
+  _reset() {
+    // Removing added rows:
+    const ingredientRows = this._parentElement.querySelectorAll(
+      '[class*=ingredient-row]'
+    );
+    ingredientRows.forEach(el => {
+      if (el.classList[0] === 'ingredient-row' && +el.classList[1] > 6) {
+        el.remove();
+      }
+    });
+
+    // Removing values:
+    const inputFields = this._parentElement.querySelectorAll('input[value]');
+    inputFields.forEach(el => {
+      // el.removeAttribute('value');
+      el.value = null;
+    });
   }
 
   _addHandlerShowWindow() {
@@ -228,8 +244,8 @@ class AddRecipeView extends View {
 
     parent.insertAdjacentHTML(
       'beforeend',
-      `<label>Ingredient ${lastRowNumber + 1}</label>
-      <div class="ingredient-row">
+      `<div class="ingredient-row ${lastRowNumber + 1}">
+        <label>Ingredient ${lastRowNumber + 1}</label>
         <input
           type="number"
           step="0.01"
