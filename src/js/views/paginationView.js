@@ -43,15 +43,15 @@ class PaginationView extends View {
     // Last page
     if (curPage === numPages && numPages > 1) {
       return `      
-      ${pageCount}
       <button data-goto="${
         curPage - 1
       }" class="btn--inline pagination__btn--prev">
-          <svg class="search__icon">
-            <use href="${icons}#icon-arrow-left"></use>
-          </svg>
-          <span>Page ${curPage - 1}</span>
-        </button>
+      <svg class="search__icon">
+      <use href="${icons}#icon-arrow-left"></use>
+      </svg>
+      <span>Page ${curPage - 1}</span>
+      </button>
+      ${pageCount}
       `;
     }
 
