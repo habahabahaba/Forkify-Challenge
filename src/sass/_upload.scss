@@ -111,14 +111,16 @@
       // align-items: center;
       // align-items: baseline;
       // align-items: space-between;
+      align-items: normal;
       overflow-y: scroll;
       // overflow-x: hidden;
       // gap: 1.5rem;
+      row-gap: 0.7rem;
       // padding-top: 1.4rem;
+      padding-top: 0rem;
+      margin-top: 2.3rem;
 
       // vertical-align: baseline;
-
-      // row-gap: 0.8rem;
 
       & label {
         width: 10rem;
