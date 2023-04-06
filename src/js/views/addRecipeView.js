@@ -4,159 +4,159 @@ import icons from 'url:../../img/icons.svg'; // Parcel 2
 class AddRecipeView extends View {
   _parentElement = document.querySelector('.upload');
   _message = 'Recipe was successfully uploaded :)';
-  _parentInit = `<form class="upload">
-  <div style="display: block">
-    <h3 class="upload__heading">Recipe data</h3>
-    <div class="upload__column data">
-      <label>Title</label>
-      <input required name="title" type="text" placeholder="Recipe title" />
-      <label>URL</label>
-      <input required name="sourceUrl" type="text" placeholder="Recipe URL" />
-      <label>Image URL</label>
-      <input required name="image" type="text" placeholder="Image URL" />
-      <label>Publisher</label>
-      <input required name="publisher" type="text" placeholder="Publisher" />
-      <label>Prep time</label>
-      <input required name="cookingTime" type="number" placeholder="Time in minutes" />
-      <label>Servings</label>
-      <input required name="servings" type="number" placeholder="Number of servings" />
-    </div>
-  </div>
+  //   _parentInit = `<form class="upload">
+  //   <div style="display: block">
+  //     <h3 class="upload__heading">Recipe data</h3>
+  //     <div class="upload__column data">
+  //       <label>Title</label>
+  //       <input required name="title" type="text" placeholder="Recipe title" />
+  //       <label>URL</label>
+  //       <input required name="sourceUrl" type="text" placeholder="Recipe URL" />
+  //       <label>Image URL</label>
+  //       <input required name="image" type="text" placeholder="Image URL" />
+  //       <label>Publisher</label>
+  //       <input required name="publisher" type="text" placeholder="Publisher" />
+  //       <label>Prep time</label>
+  //       <input required name="cookingTime" type="number" placeholder="Time in minutes" />
+  //       <label>Servings</label>
+  //       <input required name="servings" type="number" placeholder="Number of servings" />
+  //     </div>
+  //   </div>
 
-  <div style="display: block">
-    <h3 class="upload__heading">Ingredients</h3>
-    <div class="upload__column ingredients scrollbox">
-    <div class="ingredient-row 1">
-      <label>Ingredient 1</label>
-        <input
-          type="number"
-          step="0.01"
-          min="0.01"
-          required
-          name="ingredient-1-quantity"
-          placeholder="Quantity"
-        />
-        <input
-          type="text"
-          name="ingredient-1-unit"
-          placeholder="Unit"
-        />
-        <input
-          type="text"
-          name="ingredient-1-description"
-          placeholder="Description"
-        />
-      </div>
-      <div class="ingredient-row 2">
-        <label>Ingredient 2</label>
-        <input
-          type="number"
-          step="0.01"
-          min="0.01"
-          name="ingredient-2-quantity"
-          placeholder="Quantity"
-        />
-        <input
-          type="text"
-          name="ingredient-2-unit"
-          placeholder="Unit"
-        />
-        <input
-          type="text"
-          name="ingredient-2-description"
-          placeholder="Description"
-        />
-      </div>
-      <div class="ingredient-row 3">
-        <label>Ingredient 3</label>
-        <input
-          type="number"
-          step="0.01"
-          min="0.01"
-          name="ingredient-3-quantity"
-          placeholder="Quantity"
-        />
-        <input
-          type="text"
-          name="ingredient-3-unit"
-          placeholder="Unit"
-        />
-        <input
-          type="text"
-          name="ingredient-3-description"
-          placeholder="Description"
-        />
-      </div>
-      <div class="ingredient-row 4">
-        <label>Ingredient 4</label>
-        <input
-          type="number"
-          step="0.01"
-          min="0.01"
-          name="ingredient-4-quantity"
-          placeholder="Quantity"
-        />
-        <input
-          type="text"
-          name="ingredient-4-unit"
-          placeholder="Unit"
-        />
-        <input
-          type="text"
-          name="ingredient-4-description"
-          placeholder="Description"
-        />
-      </div>
-      <div class="ingredient-row 5">
-        <label>Ingredient 5</label>
-        <input
-          type="number"
-          step="0.01"
-          min="0.01"
-          name="ingredient-5-quantity"
-          placeholder="Quantity"
-        />
-        <input
-          type="text"
-          name="ingredient-5-unit"
-          placeholder="Unit"
-        />
-        <input
-          type="text"
-          name="ingredient-5-description"
-          placeholder="Description"
-        />
-      </div>
-      <div class="ingredient-row 6">
-        <label>Ingredient 6</label>
-        <input
-          type="number"
-          step="0.01"
-          min="0.01"
-          name="ingredient-6-quantity"
-          placeholder="Quantity"
-        />
-        <input
-          type="text"
-          name="ingredient-6-unit"
-          placeholder="Unit"
-        />
-        <input
-          type="text"
-          name="ingredient-6-description"
-          placeholder="Description"
-        />
-      </div>
-    </div>
-  </div>
-  <button class="btn upload__btn">
-    <svg>
-      <use href="src/img/icons.svg#icon-upload-cloud"></use>
-    </svg>
-    <span>Upload</span>
-  </button>
-  <button class="upload__add-row">+</button>
-</form>`;
+  //   <div style="display: block">
+  //     <h3 class="upload__heading">Ingredients</h3>
+  //     <div class="upload__column ingredients scrollbox">
+  //     <div class="ingredient-row 1">
+  //       <label>Ingredient 1</label>
+  //         <input
+  //           type="number"
+  //           step="0.01"
+  //           min="0.01"
+  //           required
+  //           name="ingredient-1-quantity"
+  //           placeholder="Quantity"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-1-unit"
+  //           placeholder="Unit"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-1-description"
+  //           placeholder="Description"
+  //         />
+  //       </div>
+  //       <div class="ingredient-row 2">
+  //         <label>Ingredient 2</label>
+  //         <input
+  //           type="number"
+  //           step="0.01"
+  //           min="0.01"
+  //           name="ingredient-2-quantity"
+  //           placeholder="Quantity"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-2-unit"
+  //           placeholder="Unit"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-2-description"
+  //           placeholder="Description"
+  //         />
+  //       </div>
+  //       <div class="ingredient-row 3">
+  //         <label>Ingredient 3</label>
+  //         <input
+  //           type="number"
+  //           step="0.01"
+  //           min="0.01"
+  //           name="ingredient-3-quantity"
+  //           placeholder="Quantity"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-3-unit"
+  //           placeholder="Unit"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-3-description"
+  //           placeholder="Description"
+  //         />
+  //       </div>
+  //       <div class="ingredient-row 4">
+  //         <label>Ingredient 4</label>
+  //         <input
+  //           type="number"
+  //           step="0.01"
+  //           min="0.01"
+  //           name="ingredient-4-quantity"
+  //           placeholder="Quantity"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-4-unit"
+  //           placeholder="Unit"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-4-description"
+  //           placeholder="Description"
+  //         />
+  //       </div>
+  //       <div class="ingredient-row 5">
+  //         <label>Ingredient 5</label>
+  //         <input
+  //           type="number"
+  //           step="0.01"
+  //           min="0.01"
+  //           name="ingredient-5-quantity"
+  //           placeholder="Quantity"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-5-unit"
+  //           placeholder="Unit"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-5-description"
+  //           placeholder="Description"
+  //         />
+  //       </div>
+  //       <div class="ingredient-row 6">
+  //         <label>Ingredient 6</label>
+  //         <input
+  //           type="number"
+  //           step="0.01"
+  //           min="0.01"
+  //           name="ingredient-6-quantity"
+  //           placeholder="Quantity"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-6-unit"
+  //           placeholder="Unit"
+  //         />
+  //         <input
+  //           type="text"
+  //           name="ingredient-6-description"
+  //           placeholder="Description"
+  //         />
+  //       </div>
+  //     </div>
+  //   </div>
+  //   <button class="btn upload__btn">
+  //     <svg>
+  //       <use href="src/img/icons.svg#icon-upload-cloud"></use>
+  //     </svg>
+  //     <span>Upload</span>
+  //   </button>
+  //   <button class="upload__add-row">+</button>
+  // </form>`;
 
   _window = document.querySelector('.add-recipe-window');
   _overlay = document.querySelector('.overlay');
@@ -186,10 +186,9 @@ class AddRecipeView extends View {
       }
     });
 
-    // Removing values:
-    const inputFields = this._parentElement.querySelectorAll('input[value]');
+    // Removing input values:
+    const inputFields = this._parentElement.querySelectorAll('input');
     inputFields.forEach(el => {
-      // el.removeAttribute('value');
       el.value = null;
     });
   }
