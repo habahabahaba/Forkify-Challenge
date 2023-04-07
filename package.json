@@ -7,7 +7,7 @@
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
   },
-  "author": "Jonas Schedtmann",
+  "author": "Jonas Schmedtmann",
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
