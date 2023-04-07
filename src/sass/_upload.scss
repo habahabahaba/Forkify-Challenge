@@ -105,22 +105,12 @@
     }
 
     &.ingredients {
-      // display: block;
-      // display: grid;
       grid-template-columns: 1fr;
-      // align-items: center;
-      // align-items: baseline;
-      // align-items: space-between;
       align-items: normal;
       overflow-y: scroll;
-      // overflow-x: hidden;
-      // gap: 1.5rem;
       row-gap: 0.7rem;
-      // padding-top: 1.4rem;
       padding-top: 0rem;
       margin-top: 2.3rem;
-
-      // vertical-align: baseline;
 
       & label {
         width: 10rem;
@@ -162,9 +152,4 @@
       }
     }
   }
-  // .ingredient-row {
-  //   // margin: 200;
-  //   // color: #f48982;
-  //   align-content: baseline;
-  // }
 }

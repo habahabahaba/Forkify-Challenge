@@ -11,7 +11,6 @@ class MessagesView extends View {
 
   constructor() {
     super();
-    // this._addHandlerShowWindow();
     this._addHandlerHideWindow();
   }
 
@@ -29,10 +28,6 @@ class MessagesView extends View {
     this._overlay.classList.add('hidden');
     this._window.classList.add('hidden');
   }
-
-  //   _addHandlerShowWindow() {
-  //     this._btnOpen.addEventListener('click', this.toggleWindow.bind(this));
-  //   }
 
   _addHandlerHideWindow() {
     this._btnClose.addEventListener('click', this.toggleWindow.bind(this));

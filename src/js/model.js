@@ -5,7 +5,6 @@ import { AJAX } from './helpers.js';
 
 export const state = {
   recipe: {},
-  // temp: {},
   search: {
     query: '',
     results: [],

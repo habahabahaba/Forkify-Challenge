@@ -2,7 +2,6 @@
   padding: 1rem 0 3rem 0;
   display: flex;
   flex-direction: column;
-  // position: relative;
 }
 .sort-panel {
   display: grid;
@@ -16,7 +15,6 @@
 }
 
 .sort-param {
-  // width: min-content;
   width: max-content;
   padding: 0 0 0 10px;
   white-space: nowrap;
@@ -42,55 +40,28 @@
 .results {
   list-style: none;
   margin-bottom: 2rem;
-  // height: max-content;
   min-height: 90rem;
-  // max-height: 100rem;
 }
 
 .pagination {
   margin-top: 4rem;
-  // margin-top: auto;
   padding: 0 0.5rem;
-  // display: flex;
-  // justify-content: space-between;
   display: grid;
-  // grid-template-columns: 30% 30% 30%;
   grid-template-columns: 1fr 1fr 1fr;
 
   &::after {
     content: '';
-    // display: table;
-
-    // clear: both;
-  }
-
-  &__btn {
-    &--prev {
-      // float: left;
-    }
-    &--next {
-      // float: right;
-    }
   }
 
   &__left--padding {
     width: 9.1rem;
     display: inline-block;
-    // height: 2.8em;
   }
 
   &__pages--count {
-    // flex: 1;
     text-align: center;
     font-size: 1.3rem;
-    // position: sticky;
-    // display: inline-flex;
-    // display: inline-block;
-    // justify-content: center;
-    // justify-self: center;
     margin-top: 0.6rem;
-    // width: 40.3%;
-    // width: 9em;
   }
 }
 
@@ -99,11 +70,6 @@
   font-size: 1.2rem;
   padding: 0 3.5rem;
   margin-top: 4rem;
-  // margin-top: auto;
-  // display: inline-block;
-  // position: sticky;
-  // bottom: 3rem;
-  // width: 42%;
 
   .twitter-link:link,
   .twitter-link:visited {
