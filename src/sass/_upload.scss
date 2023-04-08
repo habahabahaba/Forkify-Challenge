@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100rem;
+  width: min-content;
   background-color: white;
   border-radius: 9px;
 
@@ -117,6 +117,10 @@
         line-height: 240%;
         height: 24;
       }
+
+      &.scrollbox {
+        margin-left: 0;
+      }
     }
   }
 
@@ -142,6 +146,8 @@
     grid-row: 2;
     grid-column: 1/-1;
     justify-self: right;
+    // text-align: center;
+    // line-height: 10px;
 
     &.awake {
       background-image: linear-gradient(to bottom right, #fbdb89, #f48982);
